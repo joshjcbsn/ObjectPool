@@ -22,7 +22,7 @@ Object* ObjectPool::getObject() {
         return obj;
     } else {
         Object* obj = new Object();
-        _available.push_back(obj);
+        _inUse.push_back(obj);
         return obj;
     }
     mtx.unlock();
