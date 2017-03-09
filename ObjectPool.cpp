@@ -33,7 +33,7 @@ void ObjectPool::releaseObject(Object* o) {
     mtx.lock();
     _available.push_back(o);
     _inUse.erase(find(_inUse.begin(), _inUse.end(), o));
-    mtx.lock();
+    mtx.unlock();
 }
 
 void ObjectPool::cleanUp(Object* o) {
